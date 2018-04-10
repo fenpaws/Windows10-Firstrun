@@ -34,5 +34,5 @@ for /f "delims=," %%a in (.\choco.txt) do choco install %%a --acceptlicense -y
 
 ::-----Reclaim Windows
 git clone https://github.com/Disassembler0/Win10-Initial-Setup-Script.git
-::powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Win10-Initial-Setup-Script\Win10.ps1 -preset .\reclaimPreset.txt
+powershell.exe -NoProfile -ExecutionPolicy Bypass -File .\Win10-Initial-Setup-Script\Win10.ps1 -preset .\reclaimPreset.txt
 pause
