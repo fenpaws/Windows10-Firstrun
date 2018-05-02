@@ -5,7 +5,7 @@ if exist "C:\ProgramData\chocolatey\choco.exe" (
     echo Chocolatey is already Installed on this machine...
 
     echo Installing now specified packages...
-    call :choco-programm-install
+    call :choco-programme-install
 
     cls
     echo Running the Win10-Initial-Setup-Script...
@@ -18,12 +18,12 @@ if exist "C:\ProgramData\chocolatey\choco.exe" (
 
 ) else (
     cls
-    echo Chocolatey is not Installed on this machine, isntalling now...
-    call :isntall-chocolatey
+    echo Chocolatey is not Installed on this machine, installing now...
+    call :install-chocolatey
 
     cls
     echo Installing now specified packages...
-    call :choco-programm-install
+    call :choco-programme-install
 
     cls
     echo Running the Win10-Initial-Setup-Script...
@@ -35,12 +35,12 @@ if exist "C:\ProgramData\chocolatey\choco.exe" (
     exit
 )
 
-::-----Chocolatey Install Scrypt
-:isntall-chocolatey
+::-----Chocolatey Install Script
+:install-chocolatey
 @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 ::-----Start Intall loop
-:choco-programm-install
+:choco-programme-install
 choco install git --acceptlicense -y
 for /f "delims=," %%a in (.\choco.preset) do choco install %%a --acceptlicense -y
 cls
