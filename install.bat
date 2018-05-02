@@ -1,4 +1,3 @@
-
 @echo off
 
 :: BatchGotAdmin
@@ -70,6 +69,8 @@ if exist "C:\ProgramData\chocolatey\choco.exe" (
 :choco-programme-install
 choco install git --acceptlicense -y
 for /f "delims=," %%a in (.\choco.preset) do choco install %%a --acceptlicense -y
+cls
+echo Package %%a is installing...
 cls
 choco upgrade all -y
 pause
