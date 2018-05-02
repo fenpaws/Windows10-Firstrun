@@ -1,9 +1,9 @@
 # Firstrun for Windows 10
 
-This script aims to minimize the amount of time and work to reprovision your Windows 10 machine. It basically runs [Win10 Initial Setup Script](#Usage-of-other-software) and uses Chocolatey to reinstall your software.
+This script aims to minimize the amount of time and work to reprovision your Windows 10 machine. It basically runs [Win10 Initial Setup Script](#usage-of-other-software) and uses Chocolatey to reinstall your software.
 
 ## Important informatons
-- It may happen that you are not able to Update windows anymore, therefore I disabled the Temetetry option in the Preset. Please refer to the FAQ from the [Win10 Initial Setup Script](#Usage-of-other-software) for any questions.
+- It may happen that you are not able to Update windows anymore, therefore I disabled the Temetetry option in the Preset. Please refer to the FAQ from the [Win10 Initial Setup Script](#usage-of-other-software) for any questions.
 
 ## Configuration and usage
 
