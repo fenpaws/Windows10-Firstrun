@@ -2,15 +2,16 @@
 
 This script aims to minimize the amount of time and work to reprovision your Windows 10 machine. It basically runs [Win10 Initial Setup Script](#usage-of-other-software) and uses Chocolatey to reinstall your software.
 
-## Important informatons
-- It may happen that you are not able to Update windows anymore, therefore I disabled the Temetetry option in the Preset. Please refer to the FAQ from the [Win10 Initial Setup Script](#usage-of-other-software) for any questions.
+## Important information
+- It may happen that you are not able to Update windows anymore, a quick fix is to make a `reclaim.preset` file and add this line `"EnableTelemetry"`.
+-  Please refer to the FAQ from the [Win10 Initial Setup Script](#usage-of-other-software) Repository for any questions.
 
 ## Configuration and usage
 
 ### Configuration
-`install.txt`: List your Chocolatey package names line- and comma seperated. Needs git as the first package.
+`install.preset`: List your Chocolatey package names line- and comma separated. (a sample `choco.preset` is included)
 
-`reclaimPreset.txt`: Default Reclaim Windows 10 preset - change to your (or your company's preferences). For more details, check the file and the Reclaim Windows 10 repo. 
+If you want to customize what the [Win10 Initial Setup Script](#usage-of-other-software) does, create a file called `reclaim.preset` and modify the settings. Please refer to the official [Win10 Initial Setup Script](#usage-of-other-software) Repository for detailed information.
 
 ### Usage
 - Run `install.bat`.
