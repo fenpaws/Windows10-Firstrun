@@ -1,6 +1,9 @@
 # Firstrun for Windows 10
 
-This script aims to minimize the amount of time and work to reprovision your Windows 10 machine. It basically runs [Reclaim Windows 10](#Usage-of-other-software) and uses Chocolatey to reinstall your software.
+This script aims to minimize the amount of time and work to reprovision your Windows 10 machine. It basically runs [Win10 Initial Setup Script](#Usage-of-other-software) and uses Chocolatey to reinstall your software.
+
+## Important informatons
+- It may happen that you are not able to Update windows anymore, therefore I disabled the Temetetry option in the Preset.
 
 ## Configuration and usage
 
@@ -14,7 +17,7 @@ This script aims to minimize the amount of time and work to reprovision your Win
 
 ## Usage of other software
 The Script uses:
-- [Reclaim Windows 10](https://github.com/Disassembler0/Win10-Initial-Setup-Script) script from [Disassembler0](https://github.com/Disassembler0)
+- [Win10 Initial Setup Script](https://github.com/Disassembler0/Win10-Initial-Setup-Script) script from [Disassembler0](https://github.com/Disassembler0)
 - [Chocolatey](https://github.com/chocolatey/choco)
 
 ## License
