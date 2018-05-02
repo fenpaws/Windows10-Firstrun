@@ -50,7 +50,7 @@ pause
 ::-----Win10 Initial Setup Script
 :Win10-Initial-Setup-Script
 git clone https://github.com/Disassembler0/Win10-Initial-Setup-Script.git
-if exist ".\reclaimPreset.txt"(
+if exist ".\reclaim.preset"(
     powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Win10-Initial-Setup-Script\Win10.ps1" -preset ".\reclaim.preset"
 ) else (
     powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Win10-Initial-Setup-Script\Win10.ps1" -preset "\Win10-Initial-Setup-Script\Default.preset"
