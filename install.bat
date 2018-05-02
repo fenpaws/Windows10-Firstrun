@@ -71,15 +71,22 @@ if exist "C:\ProgramData\chocolatey\choco.exe" (
 choco install git --acceptlicense -y
 for /f "delims=," %%a in (.\choco.preset) do choco install %%a --acceptlicense -y
 cls
-choco update all -y
+choco upgrade all -y
 pause
 
 ::-----Win10 Initial Setup Script
 :Win10-Initial-Setup-Script
+
+if exist Win10-Initial-Setup-Script (rmdir /S /Q .\Win10-Initial-Setup-Script && echo old Repo deleted, the new one will be downloaded now....)
+
 git clone https://github.com/Disassembler0/Win10-Initial-Setup-Script.git
-if exist ".\reclaim.preset"(
-    powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Win10-Initial-Setup-Script\Win10.ps1" -preset ".\reclaim.preset"
+if exist "reclaim.preset" (
+    cls
+    echo custom preset found...
+    call powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Win10-Initial-Setup-Script\Win10.ps1" -preset ".\reclaim.preset"
 ) else (
-    powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Win10-Initial-Setup-Script\Win10.ps1" -preset "\Win10-Initial-Setup-Script\Default.preset"
+    cls
+    echo No custom preset found, reverting to defaults...
+    call powershell.exe -NoProfile -ExecutionPolicy Bypass -File ".\Win10-Initial-Setup-Script\Win10.ps1" -preset "\Win10-Initial-Setup-Script\Default.preset"
 
 )
