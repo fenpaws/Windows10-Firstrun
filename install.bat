@@ -6,6 +6,8 @@ set "ELEVATE_CMDLINE=cd /d "%~dp0" & call "%~f0" %*"
 findstr "^:::" "%~sf0">temp.vbs
 cscript //nologo temp.vbs & del temp.vbs & exit /b
 :admin -------------------------------------------------------------
+pushd "%CD%"	
+CD /D "%~dp0"
 
 ::-----Check if Chocolaty is already Installed
 if exist "C:\ProgramData\chocolatey\choco.exe" (
