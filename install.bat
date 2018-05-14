@@ -1,13 +1,28 @@
 @echo off
 
-:: ------- Self-elevating.bat --------------------------------------
-@whoami /groups | find "S-1-16-12288" > nul && goto :admin
-set "ELEVATE_CMDLINE=cd /d "%~dp0" & call "%~f0" %*"
-findstr "^:::" "%~sf0">temp.vbs
-cscript //nologo temp.vbs & del temp.vbs & exit /b
-:admin -------------------------------------------------------------
-pushd "%CD%"	
-CD /D "%~dp0"
+:: BatchGotAdmin
+:-------------------------------------
+REM  --> Check for permissions
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+
+REM --> If error flag set, we do not have admin.
+if '%errorlevel%' NEQ '0' (
+    echo Requesting administrative privileges...
+    goto UACPrompt
+) else ( goto gotAdmin )
+
+:UACPrompt
+    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+    echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
+
+    "%temp%\getadmin.vbs"
+    exit /B
+
+:gotAdmin
+    if exist "%temp%\getadmin.vbs" ( del "%temp%\getadmin.vbs" )
+    pushd "%CD%"
+    CD /D "%~dp0"
+:--------------------------------------
 
 ::-----Check if Chocolaty is already Installed
 if exist "C:\ProgramData\chocolatey\choco.exe" (
